@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+
+{% block page_title %}
+	{{ title }}
+{% endblock %}
+
+{% block content %}
+<article class="arti">
+	<ul class="arti-ul">
+	{% for pr in product %}
+		<li class="arti-ul-li">
+			<a href="{% url 'products.views.product_detail' pk=pr.pk %}" >
+				{{ pr.name }} |
+			</a>
+			{{ pr.description }}
+			<img src="{{ pr.image.url }}" class="arti-ul-li-img">
+		</li>
+	{% endfor %}
+	</ul>
+</article>
+	
+{% endblock %}
